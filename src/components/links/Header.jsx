@@ -2,7 +2,9 @@ import { Button } from "antd";
 import React from "react";
 import { FcIdea } from "react-icons/fc";
 import { MdOutlineMenu } from "react-icons/md";
+import { Link, useLocation } from "react-router-dom";
 const Header = () => {
+    const { pathname } = useLocation();
     return (
         <header className="">
             <nav className="flex items-center justify-between my-3 w-[92%] mx-auto">
@@ -49,10 +51,21 @@ const Header = () => {
                 </div>
                 <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
-                    <Button className=" bg-blue-500 text-white">Login</Button>
-                    <Button className=" bg-blue-500 text-white">Sign up</Button>
+                        <Link to={"/login"}>
+                            <Button className=" bg-blue-500 text-white">
+                                Login
+                            </Button>
+                        </Link>
+                        <Link to={"/sign-up"}>
+                            <Button className=" bg-blue-500 text-white">
+                                Sign up
+                            </Button>
+                        </Link>
                     </div>
-                    <MdOutlineMenu onClick="onToggleMenu(this)" className=" md:hidden"/>
+                    <MdOutlineMenu
+                        onClick="onToggleMenu(this)"
+                        className=" md:hidden"
+                    />
                 </div>
             </nav>
         </header>
